@@ -1,10 +1,7 @@
-function [out,imageNoise,dImage] = early_vision_model3_imageDerivative(imageBitmap,degSize,timecourse,fixation,pars,sizePx,refLum,V1Mode,csfSelector)
-%function [imageBitmap,imageNoise] = early_vision_model3(imageBitmap,degSize,timecourse,fixation,pars,sizePx,Gradidx,refLum,V1Mode)
+function [out,imageNoise,dImage] = early_vision_model_imageDerivative(imageBitmap,degSize,timecourse,fixation,pars,sizePx,refLum,V1Mode,csfSelector)
+%function [imageBitmap,imageNoise] = early_vision_model(imageBitmap,degSize,timecourse,fixation,pars,sizePx,Gradidx,refLum,V1Mode)
 % This is the model in which only a few orientations enter the
 % normalization pool. This should fit oblique masking additionally. 
-%
-% According to Itti, Koch & Brown (2000) this should also fit orientation
-% and frequency discrimination data.
 
 
 

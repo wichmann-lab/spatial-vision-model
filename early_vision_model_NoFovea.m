@@ -1,10 +1,7 @@
-function [outN,imageNoise,out] = early_vision_model3_NoFovea(imageBitmap,degSize,timecourse,pars,sizePx)
-%function [imageBitmap,imageNoise] = early_vision_model3(imageBitmap,degSize,timecourse,fixation,pars,sizePx)
+function [outN,imageNoise,out] = early_vision_model_NoFovea(imageBitmap,degSize,timecourse,pars,sizePx)
+%function [imageBitmap,imageNoise] = early_vision_model(imageBitmap,degSize,timecourse,fixation,pars,sizePx)
 % This is the model in which only a few orientations enter the
 % normalization pool. This should fit oblique masking additionally. 
-%
-% According to Itti, Koch & Brown (2000) this should also fit orientation
-% and frequency discrimination data.
 %
 % 
 
