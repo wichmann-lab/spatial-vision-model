@@ -82,8 +82,6 @@ for ifreq = 1:length(freq)
         end
         % NOW: Add gabor to blank interval!
         gabor = gabor+blank-L; 
-        gabor = watson_filter_eye(gabor,degSize,4); % changed to fixed pupil size of 4!
-        blank = watson_filter_eye(blank,degSize,4); % Change if you find a better way to include the luminance for the rest of the monitor and other illumination!
         refLum = watson_filter_eye(ones(size(gabor)),degSize,4);
         refLum = L.*mean(refLum(:));
         

@@ -49,6 +49,8 @@ if any(pars<0)
     error('You passed negative parameters to the model. This is not allowed!');
 end
 
+imageBitmap = watson_filter_eye(imageBitmap,degSize,4);
+
 [imageBitmap,degSize] = foveate_image1(imageBitmap,degSize,timecourse,fixation,refLum,sizePx,csfSelector);
 
 if nargout <= 2

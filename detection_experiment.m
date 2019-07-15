@@ -51,8 +51,6 @@ for icontrast = 1:length(contrast)
     target(target>lumBorder(2)) = lumBorder(2);
     blank(blank<lumBorder(1)) = lumBorder(1);
     blank(blank>lumBorder(2)) = lumBorder(2);
-    target = watson_filter_eye(target,degSize,4);
-    blank = watson_filter_eye(blank,degSize,4);
     if nargout >3
         [target,targetNoise,targetGrad,targetnoiseGrad] = early_vision_model(target,degSize,timecourse,fixation,pars,sizePx,Gradidx,[],V1Mode);
         [blank,blankNoise,blankGrad,blanknoiseGrad]   = early_vision_model(blank ,degSize,timecourse,fixation,pars,sizePx,Gradidx,[],V1Mode);
