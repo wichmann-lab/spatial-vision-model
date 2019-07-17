@@ -1,5 +1,5 @@
 function image = image_gabor(imSize,degSize,freq,contrast,center,orientation,L,sigma0,sigma1,phase,antiAliasing)
-% function image = image_gabor(imSize,degSize,freq,contrast,center,orientation,L,sigma0,sigma1,phase)
+% function image = image_gabor(imSize,degSize,freq,contrast,center,orientation,L,sigma0,sigma1,phase,antiAliasing)
 % this function creates a Gabor patch with given orientation, frequency and
 % size (rad and deg of visual angle) in the center of the image
 

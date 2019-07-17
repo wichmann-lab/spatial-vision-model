@@ -1,5 +1,5 @@
 function imageBitmap = image_disk(imSize,degSize,bgLum,lum,center,size)
-%function image = image_disk(imSize,degSize,center,size)
+%function image = image_disk(imSize,degSize,bgLum,lum,center,size)
 % creates an image of a light disk lum brighter than the background at
 % bgLum with center center and radius size in degrees.
 % As usual it requires the size in pixels and in degrees.

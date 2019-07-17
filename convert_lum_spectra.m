@@ -1,4 +1,4 @@
-function [imCones,imLum] = conesFromImage(image,spectra,silent)
+function [imLum,imCones] = convert_lum_spectra(image,spectra,silent)
 %function [imCones,imLum] = conesFromImage(image,spectra,silent)
 % this function uses the measured spectra and the cone fundamentals from
 % CVRL (Stockmans lab) to compute cone activations for each pixel in the

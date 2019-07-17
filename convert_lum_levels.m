@@ -1,4 +1,4 @@
-function im_bw = get_bw_image(image,spectra)
+function im_bw = convert_lum_levels(image,spectra)
 %function im_bw = get_bw_image(image,spectra)
 % this function uses the measured spectra and the cone fundamentals from
 % CVRL (Stockmans lab) to compute cone activations for each pixel in the

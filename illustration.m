@@ -16,7 +16,7 @@ set(gca,'Visible','off')
 
 
 %% convert to luminance and show again
-[~,natImage] = conesFromImage(natImage);
+[natImage] = convert_lum_spectra(natImage);
 natImageSmall=imresize(natImage,[96,96]);
 
 natImageBackground = imresize(natImage,[256,256]);

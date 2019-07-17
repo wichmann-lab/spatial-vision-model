@@ -1,11 +1,11 @@
-function [diff, noise, p, pGrad] = detection_experiment(signal,background,degSize,timecourse,contrast,L,fixation,type,pars,sizePx,lumBorder,Gradidx,V1Mode)
-%function [diff, noise, p] = detection_experiment(signal,background,degSize,time,timecourse,contrast,L,fixation,type,pars,sizePx,V1Mode)
+function [diff, noise, p, pGrad] = detection_experiment(signal,background,degSize,timecourse,contrast,L,fixation,pars,sizePx,lumBorder,Gradidx,V1Mode)
+%function [diff, noise, p] = detection_experiment(signal,background,degSize,time,timecourse,contrast,L,fixation,pars,sizePx,V1Mode)
 % This function expects at least a background a signal and their retinal
 % size in degrees. It then computes how well these can be distinguished.
 % The simulation assumes that signal and background have the same
 % timecourse. 
 % The background is always processed as is by the model, i.e. should
-% ideally be given in cd/m^2 units
+% be given in cd/m^2 units
 % The signal is expected as a [-1 1] scaled contrast image. It is added to
 % the background at [contrast]. If you want you can change the reference
 % luminance by changing L. 

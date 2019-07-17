@@ -1,4 +1,4 @@
-function lumImage = get_lum_image(rgbImage,spectra)
+function lumImage = convert_lum_fit(rgbImage,spectra)
 
 if ~exist('spectra','var') || isempty(spectra)
     sfile = importdata('Color_Monitor.dat');
