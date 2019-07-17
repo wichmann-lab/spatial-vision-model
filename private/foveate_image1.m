@@ -1,5 +1,5 @@
-function [imageBitmap,degSize] = foveate_image1(imageBitmap,degSize,timecourse,fixation,refLum,sizePx)
-% function [imageBitmap,degSize] = foveate_image1(imageBitmap,degSize,timecourse,fixation,refLum,sizePx)
+function [imageBitmap,degSize] = foveate_image1(imageBitmap,degSize,timecourse,fixation,refLum,sizePx,csfSelector)
+% function [imageBitmap,degSize] = foveate_image1(imageBitmap,degSize,timecourse,fixation,refLum,sizePx,csfSelector)
 % This is the foveation for the model without a proper Retina, It models
 % only a normalization for the whole image and a hand tuned (spline) csf.
 
@@ -12,6 +12,9 @@ end
 if ~exist('sizePx','var') || isempty(sizePx)
     sizePx = 256;
 end
+if ~exist('csfSelector','var') || isempty(csfSelector)
+    csfSelector = [];
+end
 if ~exist('refLum','var') || isempty(refLum)
     refLum = [];
 end
@@ -19,6 +22,7 @@ persistent csfs
 persistent timecourses
 persistent savedSize
 persistent savedDegSize
+persistent savedCsfSelector
 
 if ~exist('degSize','var') || isempty(degSize)
     degSize = getDegSize;
@@ -41,7 +45,7 @@ timecourse = timecourse(:);
 found = false;
 if ~isempty(csfs)
     for icsf = 1:length(csfs)
-        if length(timecourses{icsf})==length(timecourse) && all(timecourse==timecourses{icsf}) && all(savedSize{icsf}==size(imageBitmap)) && all(savedDegSize{icsf}==degSize)
+        if length(timecourses{icsf})==length(timecourse) && all(timecourse==timecourses{icsf}) && all(savedSize{icsf}==size(imageBitmap)) && all(savedDegSize{icsf}==degSize) && strcmp(savedCsfSelector{icsf},csfSelector)
             found = true;
             idxCsf = icsf;
         end
@@ -63,7 +67,7 @@ else
     x = x.^2;
     y = y.^2;
     f = sqrt(bsxfun(@plus,x,y'));
-    [fgrid,sens] = getCsf(timecourse);
+    [fgrid,sens] = getCsf(csfSelector,timecourse);
     
     
     csf = interp1(log2(fgrid),sens,log2(f),'pchip');
@@ -76,6 +80,7 @@ else
     timecourses{idxCsf}=timecourse;
     savedSize{idxCsf}=size(csf);
     savedDegSize{idxCsf}=degSize;
+    savedCsfSelector{idxCsf}=csfSelector;
 end
 
 %% filter with csf

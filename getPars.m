@@ -19,28 +19,24 @@ end
 switch time
     case {19,20}
         if V1Mode == 2
-            load pars/pars1497_local.mat
-            load pars/pars20_local.mat
-            pars = [pars20,pars1497(6:end)];
+            load pars/pars20.mat
+            pars = pars20;
         else
-            load pars/pars20
+            load pars/pars20.mat
             pars = pars20;
         end
     case 79
         if V1Mode == 2
             load pars/pars79_local.mat
-            load pars/pars1497_local.mat
-            pars = [pars79,pars1497(6:end)];
+            pars = pars79;
         else
             load pars/pars79
             pars = pars79;
         end
     case 500
         if V1Mode == 2
-            load pars/pars1497_local.mat
-            pars = pars1497;
             load pars/parsMF_local.mat
-            pars(1:5) = parsMF;
+            pars= parsMF;
         else
             load pars/parsMF
             pars = parsMF;
@@ -56,8 +52,7 @@ switch time
     otherwise
         if V1Mode == 2
             load pars/pars79_local.mat
-            load pars/pars1497_local.mat
-            pars = [pars79,pars1497(6:end)];
+            pars = pars79;
         else
             load pars/pars79
             pars = pars79;

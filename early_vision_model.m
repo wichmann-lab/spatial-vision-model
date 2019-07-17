@@ -28,12 +28,12 @@ if isscalar(timecourse)
     timecourse = ones(ceil(timecourse),1);  %ms
 end
 if ~exist('V1Mode','var') || isempty(V1Mode)
-    V1Mode = 6;
+    V1Mode = 1;
 end
 if ~exist('csfSelector','var') || isempty(csfSelector)
-    if V1Mode == 6
+    if V1Mode == 1
         csfSelector = 'mean';
-    elseif V1Mode == 7
+    elseif V1Mode == 2
         csfSelector = 'standard';
     else
         csfSelector = [];

@@ -9,7 +9,7 @@ function [imCones,imLum] = conesFromImage(image,spectra,silent)
 
 
 if ~exist('spectra','var') || isempty(spectra)
-    load('spectra256-2015-03-16.mat')
+    load('private/spectra256-2015-03-16.mat')
 end
 if ~exist('silent','var') || isempty(silent)
     silent = false;
@@ -19,12 +19,12 @@ end
 
 
 image = double(image);
-coneSens = importdata('ss10q_1.csv');
+coneSens = importdata('private/ss10q_1.csv');
 coneSens(isnan(coneSens))= -inf;
 coneSens(:,2:4) = 10.^coneSens(:,2:4);
 
 
-vlamb = importdata('logCIE2008v10q_1.csv');
+vlamb = importdata('private/logCIE2008v10q_1.csv');
 vlambf = vlamb(:,1);
 vlamb = 10.^(vlamb(:,2));
 

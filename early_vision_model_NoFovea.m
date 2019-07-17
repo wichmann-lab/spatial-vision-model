@@ -1,9 +1,6 @@
-function [outN,imageNoise,out] = early_vision_model_NoFovea(imageBitmap,degSize,timecourse,pars,sizePx)
-%function [imageBitmap,imageNoise] = early_vision_model(imageBitmap,degSize,timecourse,fixation,pars,sizePx)
-% This is the model in which only a few orientations enter the
-% normalization pool. This should fit oblique masking additionally. 
-%
-% 
+function [outN,imageNoise,out] = early_vision_model_NoFovea(imageBitmap,degSize,timecourse,pars,sizePx,V1Mode)
+%function [imageBitmap,imageNoise] = early_vision_model(imageBitmap,degSize,timecourse,fixation,pars,sizePx,V1Mode)
+
 
 
 if ~exist('degSize','var') || isempty(degSize)
@@ -21,11 +18,21 @@ if isscalar(timecourse)
     timecourse = ones(ceil(timecourse),1);  %ms
 end
 
-V1Mode = 6;
-csfSelector = 'mean';
+if ~exist('V1Mode','var') || isempty(V1Mode)
+    V1Mode = 1;
+end
+if ~exist('csfSelector','var') || isempty(csfSelector)
+    if V1Mode == 1
+        csfSelector = 'mean';
+    elseif V1Mode == 2
+        csfSelector = 'standard';
+    else
+        csfSelector = [];
+    end
+end
 
 if ~exist('pars','var') || isempty(pars)
-    pars = getPars(3,length(timecourse),V1Mode);
+    pars = getPars(length(timecourse),V1Mode);
 end
 
 noiseConst = pars(1);
