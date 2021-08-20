@@ -29,8 +29,8 @@ end
 
 imDiff = image1-image2;
 SNR  = imDiff(:)./sqrt(image1Noise(:)+image2Noise(:));
-diff = sum(imDiff(:).*SNR); % weigthed by signal to noise ratio, assuming independet pixels
-noise = sum((image1Noise(:)+image2Noise(:)).*SNR.*SNR);
+diff = sum(SNR.*SNR); % weigthed by signal to noise ratio, assuming independet pixels
+noise = sum(SNR.*SNR);
 if useGPU
     diff = gather(diff);
     noise = gather(noise);
