@@ -50,7 +50,7 @@ imageBitmap = watson_filter_eye(imageBitmap,degSize,4);
 
 imageBitmap = imresize(imageBitmap,sizePx);
 
-[outN,~,out] = V1(imageBitmap,degSize,4,pars(3:14),[]);
+[outN,~,out] = V1(imageBitmap,degSize,2,pars(3:14),[]);
 
 imageNoise = noiseConst+noiseFactor.*abs(out);
 imageNoise = imageNoise./prod(degSize)*numel(imageBitmap).*pars(8)./12.*pars(9)./8;

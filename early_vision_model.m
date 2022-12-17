@@ -41,7 +41,7 @@ if ~exist('csfSelector','var') || isempty(csfSelector)
 end
 
 if ~exist('pars','var') || isempty(pars)
-    pars = getPars(3,length(timecourse),V1Mode);
+    pars = getPars(length(timecourse),V1Mode);
 end
 noiseConst = pars(1);
 noiseFactor= pars(2);
