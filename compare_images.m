@@ -19,12 +19,8 @@ if isempty(useGPU)
     useGPU = 0;
 end
 
-if ~exist('type','var') || isempty(type)
-    type = 1;
-end
-
 if nargout >3
-    assert(type ==1 && exist('image1Grad','var') && exist('image1NoiseGrad','var') && exist('image2Grad','var') && exist('image2NoiseGrad','var'),'To calculate a gradient you need to provide gradients from earlier processing!');
+    assert(exist('image1Grad','var') && exist('image1NoiseGrad','var') && exist('image2Grad','var') && exist('image2NoiseGrad','var'),'To calculate a gradient you need to provide gradients from earlier processing!');
 end
 
 imDiff = image1-image2;
